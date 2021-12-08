@@ -1,0 +1,356 @@
+@font-face {
+    font-family: SFRounded;
+    src: url(../../FontsFree-Net-SF-Pro-Rounded-Semibold.ttf);
+}
+@font-face {
+    font-family: SFRoundedBold;
+    src: url(../../FontsFree-Net-SF-Pro-Rounded-Heavy.ttf);
+}
+.homepage {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+}
+.nav{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    max-width: 1500px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+.nav-item{
+    flex: 1;
+    height: 100%;
+}
+.a {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 45px;
+
+}
+.nav-logo{
+    position: absolute;
+    left: 30px;
+    height: 69px;
+    width: auto;
+    transition: all .2s ease-in-out; 
+
+}
+.nav-logo:hover {
+    transform: scale(1.1);
+}
+.logo-text {
+    position: absolute;
+    left: 100px;
+    top: 10px;
+    height: 22px;
+}
+.b{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.searchbar{
+    display: flex;
+    height: 46px;
+    width: 100%;
+    background-color: #dde5f2;
+    border-radius: 50px;
+    align-items: center;
+    padding-left: 19px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    transition: all .12s ease-in-out; 
+}
+.searchbar:hover {
+    transform: scale(1.05);
+}
+.searchbar-input {
+    width:365px !important;
+    box-sizing: content-box; 
+    width: 100%; 
+    background: 0px center; 
+    border: 0px; 
+    font-family: SFRounded;
+    font-size: 19px;
+    margin-bottom: -3px;
+    opacity: 1; 
+    outline: 0px; 
+    padding: 0px;
+    padding-left: 20px;
+}
+.searchbar-input::placeholder{
+    color: #8c92a3;
+}
+.c {
+    display: flex;
+    align-items:center;
+    justify-content:right;
+    text-align:right;
+
+}
+.nav-link {
+    text-decoration: none;
+    color: #5f6474;
+    font-size: 20px;
+    margin-left: 20px;
+    font-family: SFRounded;
+}
+@keyframes multicolor {
+    0% {
+        color: red;
+    }
+    20% {
+        color: orange;
+    }
+    40% {
+        color: yellow;
+    }
+    60% {
+        color: aqua;
+    }
+    80% {
+        color: greenyellow;
+    }
+    100% {
+        color: rgb(255, 49, 255);
+    }
+
+}
+@keyframes multicolor-bg {
+    0% {
+        background-color: red;
+    }
+    20% {
+        background-color: orange;
+    }
+    40% {
+        background-color: yellow;
+    }
+    60% {
+        background-color: aqua;
+    }
+    80% {
+        background-color: greenyellow;
+    }
+    100% {
+        background-color: rgb(255, 49, 255);
+    }
+
+}
+.nav-link:hover {
+    animation: 2s multicolor infinite;    
+    }
+
+.header{
+    font-size: 75px;
+    font-family: SFRoundedBold;
+    color: #26292e;
+    width: 100%;
+    max-width: 750px;
+    line-height: 1.175em;
+    font-size: 3.75em;
+    font-weight: 800;
+    padding: 0 60px;
+    text-align: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+.buttons{
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75%;
+    margin-top:-15px;
+}
+.apple-store-icon{
+    border-radius: 15px;
+    animation: 2s multicolor-bg infinite;    
+    transition: all .2s ease-in-out; 
+
+}
+.apple-store-icon:hover{
+    transform: scale(1.075);
+}
+.android-button{
+    height: 60px;
+    width: 230px;
+    background-color: #d7e2ed;  
+    transition: all .2s ease-in-out; 
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    margin-left: -60px;
+
+}
+.android-button-active{
+    height: 60px;
+    width: 350px;
+    background-color: #d7e2ed;  
+    transition: all .1s ease-in-out; 
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    margin-left: -5px;
+}
+.android-button:hover{
+    transform: scale(1.075);
+}
+.android-email{
+    width:365px !important;
+    box-sizing: content-box; 
+    width: 80%; 
+    background: 0px center; 
+    border: 0px; 
+    font-family: SFRounded;
+    font-size: 20px;
+    opacity: 1; 
+    outline: 0px; 
+    padding: 0px;
+    left: 50px;
+    position: absolute;
+    top: 25px;
+}
+.android-email::placeholder{
+    color: #a8b3bf;
+}
+.jointext{
+    width: 80%;
+    font-size: 12px;
+    position: absolute;
+    left: 50px;
+    font-family: SFRounded;
+    color: #7b8091;
+}
+.android-mail-img{
+    position: absolute;
+    bottom: 15px;
+    left: 12px;
+    height: 20px;
+    width: 25px;
+    transform: scale(0.95);
+    background-color: #a42fff;
+    background-size: 100%;
+    animation: 2.5s android-shine ease-in-out infinite;
+    -webkit-mask: url(../../icon-mail.svg) center no-repeat;
+    pointer-events: none;
+}
+.android-icon-img{
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    height: 13px;
+    width: 22px;
+    background-color: #a42fff;
+    background-size: 100%;
+    animation: 2s android-wiggle ease-in-out infinite;
+    -webkit-mask: url(../../icon-android.svg) center no-repeat;
+    pointer-events: none;
+
+}
+@keyframes android-wiggle {
+    0% {
+        transform: rotate(0) scaleY(0.95) translateX(0) translateY(0.5px);
+        box-shadow: inset 7px 0 7px 0 rgb(0 248 255 / 80%);
+
+    }
+    25% {
+        transform: rotate(5deg) scaleY(1.1) translateX(0) translateY(-1.5px);
+        box-shadow: inset 7px 0 7px 0 rgb(164 255 0 / 80%);
+
+    }
+    40% {
+        transform: rotate() scaleY() translateX(0) translateY(0.5px);
+        box-shadow: inset 7px 0 7px 0 rgb(247 39 94 / 80%);
+
+    }
+    50% {
+    transform: rotate(0) scaleY(0.95) translateX(0) translateY(0.5px);
+
+    }
+    60% {
+        transform: rotate() scaleY() translateX(0) translateY(0.5px);
+        box-shadow: inset 7px 0 7px 0 rgb(255 211 0 / 80%);
+
+    }
+    75% {
+        transform: rotate(-5deg) scaleY(1.1) translateX(0) translateY(-1.5px);
+        box-shadow: inset 7px 0 7px 0 rgb(255 158 0 / 80%);
+
+    }
+    100% {
+        transform: rotate(0) scaleY(0.95) translateX(0) translateY(0.5px);
+        box-shadow: inset 7px 0 7px 0 rgb(255 138 0 / 80%);
+
+    }
+
+}
+@keyframes android-shine {
+    0% {
+        box-shadow: inset 7px 0 7px 0 rgb(0 248 255 / 80%);
+
+    }
+    25% {
+        box-shadow: inset 7px 0 7px 0 rgb(164 255 0 / 80%);
+
+    }
+    40% {
+        box-shadow: inset 7px 0 7px 0 rgb(247 39 94 / 80%);
+
+    }
+    50% {
+        box-shadow: inset 7px 0 7px 0 rgb(255 120 0 / 80%);
+
+    }
+    60% {
+        box-shadow: inset 7px 0 7px 0 rgb(255 211 0 / 80%);
+
+    }
+    75% {
+        box-shadow: inset 7px 0 7px 0 rgb(255 158 0 / 80%);
+
+    }
+    100% {
+        box-shadow: inset 7px 0 7px 0 rgb(255 138 0 / 80%);
+
+    }
+
+}
+.phone-1{
+    height: 90vh;
+    margin-top: 0;
+}
+.side-links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    width: 50vw;
+    margin-top: 10vh;
+}
+.side-links>a{
+    margin-top: -10px;
+    text-decoration: none;
+    color: #606775;
+    flex: 1;
+}
+.side-links>a:hover {
+    animation: 2s multicolor infinite;    
+    }
+.trademark{
+    color: #606775;
+    font-family: SFRounded;
+    margin-bottom: 5vh;
+
+}
