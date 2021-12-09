@@ -6,9 +6,7 @@
 
 .App {
   height: 100%;
-  width: 100vw;
-  background-color: var(--main-bg-color);
-  
+  width: 100vw;  
 }
 
 

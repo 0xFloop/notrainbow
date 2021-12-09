@@ -4,6 +4,15 @@ import "./Home.css"
 function Home() {
     const [searchBarInput, setSearchBarInput] = React.useState("");
     const [androidActive, setAndroidActive] = React.useState(false);
+    const [theme, setTheme] = React.useState(false);
+    const [offsetY, setOffsetY] = useState(0);
+    const handleScroll = () => setOffsetY(window.pageYOffset);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     window.addEventListener('click', function (e) {
         if (document.getElementById('android-input-container').contains(e.target)) {
@@ -20,8 +29,22 @@ function Home() {
             setSearchBarInput("");
         }
     }
+    const phoneScroll = () => {
+        if (offsetY >= 1520) {
+            return ["fixed", "300px", "flex", (-(offsetY - 1520) - 100).toString(), (-(offsetY - 1520) + 100).toString(), (-(offsetY - 1520) + 210).toString(), "none", "1", "1"];
+        }
+        else if (offsetY >= 920) {
+            return ["fixed", "300px", "flex", "-100", "100", "210", "flex", "1", "1"];
+        }
+        else if (offsetY >= 420) {
+            return ["fixed", "300px", "flex", (-(offsetY - 420) + 400).toString(), (-(offsetY) + 1020).toString(), (-(offsetY * 2) + 2050).toString(), "none", ((offsetY - 500) * 0.01).toString(), ((offsetY - 700) * 0.005).toString()];
+        }
+        else if (offsetY < 420) {
+            return ["relative", "0px", "none", "400", (-(offsetY - 420) + 2000).toString(), (-(offsetY - 420) + 3000).toString(), "none", "0", "0"];
+        }
+    }
     return (
-        <div className="homepage">
+        <div className={theme ? "homepage-dark" : "homepage-light"}>
             <div className="nav">
                 <div className="nav-item a">
                     <img src="assets/logo.png" alt="rainbow logo" className="nav-logo" />
@@ -52,20 +75,57 @@ function Home() {
                         <div className="android-mail-img" />
                     </div>
                 </div>
-                <div className="phone-display">
-                    <img src="assets/rainbow-preview.png" alt="" className="phone-1" />
+                <div className="phone-display" style={{ position: `${phoneScroll()[0]}`, marginTop: `${phoneScroll()[1]}`, transform: "translateX(" + `${phoneScroll()[3]}` + "px)" }}>
+                    <img src="assets/rainbow-preview.png" alt="" className="phone" />
+                    <img src="assets/rainbow-preview.png" alt="" className="phone one" style={{ transform: "translateX(" + `${phoneScroll()[4]}` + "px)", animation: "fadeIn 0.5s ease-in", opacity: `${phoneScroll()[7]}` }} />
+                    <img src="assets/rainbow-preview.png" alt="" className="phone two" style={{ transform: "translateX(" + `${phoneScroll()[5]}` + "px)", animation: "fadeIn 0.5s ease-in", opacity: `${phoneScroll()[8]}` }} />
                 </div>
+                {/* <div className="labels" style={{ display: `${phoneScroll()[6]}` }}>
+                    <h1 className="label">
+                        Wallet
+                    </h1>
+                    <h1 className="label">
+                        NFT's
+                    </h1>
+                    <h1 className="label">
+                        Dashboard
+                    </h1>
+                </div> */}
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
             <div className="about">
 
             </div>
-            <div className="side-links">
+            <div className="side-links" style={{ display: `${phoneScroll()[2]}` }}>
                 <a href="https://github.com/rainbow-me/rainbow" rel="noreferrer" target="_blank"><h3>👾 github</h3></a>
                 <a href="/media-kit.zip"><h3>⬇️ media kit</h3></a>
                 <a href="/terms-of-use"><h3>📜 terms of use</h3></a>
                 <a href="/privacy"><h3>🔒 privacy policy</h3></a>
             </div>
-            <p className="trademark">© Rainbow</p>
+            <p className="trademark" style={{ display: `${phoneScroll()[2]}` }}>© Rainbow</p>
+            <div className={theme ? "theme-switch-dark" : "theme-switch-light"} onClick={() => setTheme(!theme)}>
+                <div className="emoji-light">
+                    <p>🌙</p>
+                </div>
+                <div className="emoji-dark">
+                    <p>☀️</p>
+                </div>
+                <div className={theme ? "theme-switch-ball-dark" : "theme-switch-ball-light"}>
+                </div>
+
+            </div>
+
         </div>
     )
 }
