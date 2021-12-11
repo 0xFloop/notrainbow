@@ -12,9 +12,9 @@ site is definitely NOT optimized for mobile btw
 
 added features thus far:
 -dark mode
-
-updates to come:
--live price updates to phone
--more intricate animations
+-animations
 -better display of the features rainbow wallet has to offer
 -a quick explanation of what rainbow is on the homepage because there was no info there previously and the average user has a miniscule attention span and does not want to go to docs to understand things
+
+cool potential updates:
+-live price updates on phone displays

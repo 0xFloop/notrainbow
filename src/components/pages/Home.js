@@ -1,21 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import "./Home.css"
+import { $, jQuery } from 'jquery';
+import "./Home.css";
+
 
 function Home() {
+
     const [searchBarInput, setSearchBarInput] = React.useState("");
     const [androidActive, setAndroidActive] = React.useState(false);
     const [theme, setTheme] = React.useState(false);
     const [offsetY, setOffsetY] = useState(0);
+    const [initialOffset, setInitialOffset] = useState(0);
+
     const handleScroll = () => setOffsetY(window.pageYOffset);
+    const createOffsetY = () => {
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+        let rect = document.querySelector('.phone-display').getBoundingClientRect()["y"]
+        setInitialOffset(rect);
+        console.log(rect + " printing from createOffsetY()" + initialOffset);
+    }
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
-
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        createOffsetY();
+
+    }, [initialOffset]);
+
     window.addEventListener('click', function (e) {
-        if (document.getElementById('android-input-container').contains(e.target)) {
+        if (document.getElementById('android-input-container').contains(e.target) || document.getElementById('android-input-container-bottom').contains(e.target)) {
+            setAndroidActive(true);
 
         } else if (androidActive) {
             setAndroidActive(false);
@@ -29,18 +47,34 @@ function Home() {
             setSearchBarInput("");
         }
     }
+    let intViewportHeight = window.innerHeight;
+    let intViewportWidth = window.innerWidth;
+
+    // var phone = $('.one').offset().top;
+
     const phoneScroll = () => {
-        if (offsetY >= 1520) {
-            return ["fixed", "300px", "flex", (-(offsetY - 1520) - 100).toString(), (-(offsetY - 1520) + 100).toString(), (-(offsetY - 1520) + 210).toString(), "none", "1", "1"];
+        console.log(initialOffset);
+        if (window.pageYOffset >= 2940) {
+            return ["fixed", "63vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "flex", "100", "100", "100", "100", "100", "100", "-10000", "absolute", "2760px", "0"];
         }
-        else if (offsetY >= 920) {
-            return ["fixed", "300px", "flex", "-100", "100", "210", "flex", "1", "1"];
+        else if (window.pageYOffset >= 2640) {
+            return ["fixed", "53vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "flex", "100", "100", "100", "100", "100", "100", "-10000", "fixed", "", "0"];
         }
-        else if (offsetY >= 420) {
-            return ["fixed", "300px", "flex", (-(offsetY - 420) + 400).toString(), (-(offsetY) + 1020).toString(), (-(offsetY * 2) + 2050).toString(), "none", ((offsetY - 500) * 0.01).toString(), ((offsetY - 700) * 0.005).toString()];
+        else if (window.pageYOffset >= 1820) {
+            return ["fixed", "53vh", "flex", (-((window.pageYOffset - 1520) * 2) - 120).toString() + "px", (-(window.pageYOffset - 1520) * 2).toString(), (-(window.pageYOffset - 1520) * 2 + 120).toString(), "none", "1", "1", "flex", (-(window.pageYOffset - 1820) * 1.71 + 1500).toString(), (-(window.pageYOffset - 1820) * 3.66 + 3100).toString(), (-(window.pageYOffset - 1820) * 4.62 + 3890).toString(), (-(window.pageYOffset - 1820) * 5.58 + 4680).toString(), (-(window.pageYOffset - 1820) * 6.54 + 5470).toString(), (-(window.pageYOffset - 1820) * 7.5 + 6260).toString(), "-10000", "fixed", "", "0"];
         }
-        else if (offsetY < 420) {
-            return ["relative", "0px", "none", "400", (-(offsetY - 420) + 2000).toString(), (-(offsetY - 420) + 3000).toString(), "none", "0", "0"];
+        else if (window.pageYOffset >= 1520) {
+            return ["fixed", "53vh", "flex", (-((window.pageYOffset - 1520) * 2) - 120).toString() + "px", (-(window.pageYOffset - 1520) * 2).toString(), (-(window.pageYOffset - 1520) * 2 + 120).toString(), "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+        }
+        else if (window.pageYOffset >= 1000) {
+            return ["fixed", "53vh", "flex", "-120px", "0", "120", "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+        }
+        else if (window.pageYOffset - initialOffset > 0) {
+            return ["fixed", "53vh", "flex", (-((window.pageYOffset - initialOffset) - 570)).toString() + "px", (-(window.pageYOffset * 1.755) + 1750).toString(), (-(window.pageYOffset * 2) + 2120).toString(), "none", ((window.pageYOffset - 500) * 0.01).toString(), ((window.pageYOffset - 700) * 0.005).toString(), "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+        }
+        else if (window.pageYOffset <= initialOffset) {
+            console.log(window.pageYOffset + " " + initialOffset)
+            return ["relative", "0px", "none", "100%", (-(window.pageYOffset - 420) + 2000).toString(), (-(window.pageYOffset - 420) + 3000).toString(), "none", "0", "0", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", ""];
         }
     }
     return (
@@ -75,10 +109,25 @@ function Home() {
                         <div className="android-mail-img" />
                     </div>
                 </div>
-                <div className="phone-display" style={{ position: `${phoneScroll()[0]}`, marginTop: `${phoneScroll()[1]}`, transform: "translateX(" + `${phoneScroll()[3]}` + "px)" }}>
-                    <img src="assets/rainbow-preview.png" alt="" className="phone" />
-                    <img src="assets/rainbow-preview.png" alt="" className="phone one" style={{ transform: "translateX(" + `${phoneScroll()[4]}` + "px)", animation: "fadeIn 0.5s ease-in", opacity: `${phoneScroll()[7]}` }} />
-                    <img src="assets/rainbow-preview.png" alt="" className="phone two" style={{ transform: "translateX(" + `${phoneScroll()[5]}` + "px)", animation: "fadeIn 0.5s ease-in", opacity: `${phoneScroll()[8]}` }} />
+                <div className="phone-display" style={{ position: `${phoneScroll()[0]}`, bottom: `${phoneScroll()[19]}` }}>
+                    <img src="assets/phone1.png" alt="" className="phone one" style={{ transform: "translateX(" + `${phoneScroll()[3]}` + ")" }} />
+                    <img src="assets/phone2.png" alt="" className="phone one" style={{ transform: "translateX(" + `${phoneScroll()[4]}` + "px)", animation: "fadeIn 0.75s ease-in-out", opacity: `${phoneScroll()[7]}` }} />
+                    <img src="assets/phone3.png" alt="" className="phone two" style={{ transform: "translateX(" + `${phoneScroll()[5]}` + "px)", animation: "fadeIn 0.75s ease-in-out", opacity: `${phoneScroll()[8]}` }} />
+                </div>
+                <div className="about" style={{ position: `${phoneScroll()[17]}`, top: `${phoneScroll()[18]}` }}>
+                    <h1 className="about-title" style={{ animation: "fadeIn 1s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[10]}` + "px)" }} >What is <span style={{ animation: "multicolor 2s infinite" }}> &nbsp;Rainbow&nbsp; </span> Wallet?</h1>
+                    <h3 className="line first" style={{ animation: "fadeIn 1.25s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[11]}` + "px)" }} >Rainbow is a fun, simple, and secure mobile app that allows you to
+                    </h3>
+                    <h3 className="line second" style={{ animation: "fadeIn 1.05s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[12]}` + "px)" }} >1️⃣ Create an Ethereum wallet
+                    </h3>
+                    <h3 className="line third" style={{ animation: "fadeIn 1.1s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[13]}` + "px)" }} >2️⃣ Collect NFTs
+                    </h3>
+                    <h3 className="line fourth" style={{ animation: "fadeIn 1.15s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[14]}` + "px)" }} >3️⃣ Explore the new world of Web3
+                    </h3>
+                    <h3 className="line fourth" style={{ animation: "fadeIn 1.2s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[15]}` + "px)" }} >And so much more!
+                    </h3>
+                    <h3 className="line fifth" style={{ animation: "fadeIn 1.25s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[16]}` + "px)" }} >Download the app or join our Android beta today!
+                    </h3>
                 </div>
                 {/* <div className="labels" style={{ display: `${phoneScroll()[6]}` }}>
                     <h1 className="label">
@@ -91,22 +140,19 @@ function Home() {
                         Dashboard
                     </h1>
                 </div> */}
+                <div className="buttonsbottom">
+                    <a href="https://apps.apple.com/us/app/rainbow-ethereum-wallet/id1457119021" id="app-store-button"><img src="assets/app-store-button.svg" alt="apple app store button" className="apple-store-icon" /></a>
+
+                    <div id="android-input-container-bottom" className={androidActive ? "android-button-active" : "android-button"} onClick={() => setAndroidActive(true)}>
+                        <h1 className="jointext">Join the Android beta</h1>
+                        <input type="text" placeholder="Play Store email" className="android-email" />
+                        <div className="android-icon-img" />
+                        <div className="android-mail-img" />
+                    </div>
+                </div>
+                <img src="assets/largerainbow.png" alt="" className="bottomrainbow" />
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-            <div className="about">
-
-            </div>
             <div className="side-links" style={{ display: `${phoneScroll()[2]}` }}>
                 <a href="https://github.com/rainbow-me/rainbow" rel="noreferrer" target="_blank"><h3>👾 github</h3></a>
                 <a href="/media-kit.zip"><h3>⬇️ media kit</h3></a>
