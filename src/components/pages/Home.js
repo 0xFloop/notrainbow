@@ -155,10 +155,10 @@ function Home() {
             </div>
 
             <div className="side-links" style={{ display: `${phoneScroll()[2]}` }}>
-                <a href="https://github.com/rainbow-me/rainbow" rel="noreferrer" target="_blank"><h3>👾 github</h3></a>
-                <a href="/media-kit.zip"><h3>⬇️ media kit</h3></a>
-                <a href="/terms-of-use"><h3>📜 terms of use</h3></a>
-                <a href="/privacy"><h3>🔒 privacy policy</h3></a>
+                <a href="https://github.com/0xFloop/notrainbow" rel="noreferrer" target="_blank"><h3>👾 github</h3></a>
+                <a href="https://rainbow.me/media-kit.zip"><h3>⬇️ media kit</h3></a>
+                <a href="https://rainbow.me/terms-of-use"><h3>📜 terms of use</h3></a>
+                <a href="https://rainbow.me/privacy"><h3>🔒 privacy policy</h3></a>
             </div>
             <p className="trademark" style={{ display: `${phoneScroll()[2]}` }}>© Rainbow</p>
             <div className={theme ? "theme-switch-dark" : "theme-switch-light"} onClick={() => setTheme(!theme)}>
