@@ -11,7 +11,7 @@ the site can be found at notrainbow.xyz
 site animations are not optimized for mobile btw
 
 added features thus far:
--dark mode
+-dark mode / rainbowified it a bit more
 -animations
 -display of additional features rainbow wallet has to offer
 -a quick explanation of what rainbow is on the homepage because there was no info there previously and the average user has a miniscule attention span and does not want to go to docs to understand things

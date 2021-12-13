@@ -58,20 +58,20 @@ function Home() {
             return ["fixed", "63vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "", "", "", "", "", "", "", "-10000", "absolute", (intViewportHeight * 3.75 + initialOffset).toString() + "px", "0"];
         }
         else if (window.pageYOffset - initialOffset >= intViewportHeight * 3.1) {
-            return ["fixed", "53vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "", "0", "0", "0", "0", "0", "0", "-10000", "fixed", "0", "0"];
+            return ["fixed", "53vh", "none", "-10000px", "-10000", "-10000", "none", "0", "0", "", "0", "0", "0", "0", "0", "0", "-10000", "fixed", "0", "0"];
         }
         else if (window.pageYOffset - initialOffset >= intViewportHeight * 2.1) {
-            return ["fixed", "53vh", "flex", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString() + "px", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), "none", "1", "1", "flex", (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 1.33) + intViewportHeight).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 2.66) + intViewportHeight * 2).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 4) + intViewportHeight * 3).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 5.33) + intViewportHeight * 4).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 6.66) + intViewportHeight * 5).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 8) + intViewportHeight * 6).toString(), "-10000", "fixed", "0", "0"];
+            return ["fixed", "53vh", "none", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString() + "px", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), "none", "1", "1", "flex", (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 1.33) + intViewportHeight).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 2.66) + intViewportHeight * 2).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 4) + intViewportHeight * 3).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 5.33) + intViewportHeight * 4).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 6.66) + intViewportHeight * 5).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 8) + intViewportHeight * 6).toString(), "-10000", "fixed", "0", "0"];
         }
         else if (window.pageYOffset - initialOffset >= intViewportHeight * 2) {
-            return ["fixed", "53vh", "flex", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString() + "px", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+            return ["fixed", "53vh", "none", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString() + "px", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
         }
         else if (window.pageYOffset - initialOffset >= intViewportHeight) {
-            return ["fixed", "53vh", "flex", "0", "0", "0", "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+            return ["fixed", "53vh", "none", "0", "0", "0", "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
         }
         else if (window.pageYOffset - initialOffset > 0) {
             console.log((window.innerHeight + " " + (window.pageYOffset - initialOffset)));
-            return ["fixed", "53vh", "flex", (-((window.pageYOffset - initialOffset) * 0.425) + phoneWidth).toString() + "px", (-(window.pageYOffset - initialOffset) + intViewportHeight).toString(), (-(window.pageYOffset - initialOffset) * 2 + intViewportHeight * 2).toString(), "none", ((window.pageYOffset - initialOffset) * 0.01).toString(), ((window.pageYOffset - initialOffset) * 0.005).toString(), "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+            return ["fixed", "53vh", "none", (-((window.pageYOffset - initialOffset) * 0.425) + phoneWidth).toString() + "px", (-(window.pageYOffset - initialOffset) + intViewportHeight).toString(), (-(window.pageYOffset - initialOffset) * 2 + intViewportHeight * 2).toString(), "none", ((window.pageYOffset - initialOffset) * 0.01).toString(), ((window.pageYOffset - initialOffset) * 0.005).toString(), "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
         }
         else if (window.pageYOffset <= initialOffset) {
             console.log(window.pageYOffset + " " + initialOffset)
@@ -93,8 +93,8 @@ function Home() {
                     </div>
                 </div>
                 <div className="nav-item c">
-                    <a href="https://twitter.com/rainbowdotme" rel="noreferrer" target="_blank" className="nav-link twitter">🐦 twitter</a>
-                    <a rel="noreferrer" href="https://learn.rainbow.me" target="_blank" className="nav-link learn">🧠 learn</a>
+                    <a href="https://twitter.com/rainbowdotme" rel="noreferrer" target="_blank" className="nav-link twitter">🐦 &nbsp;twitter</a>
+                    <a rel="noreferrer" href="https://learn.rainbow.me" target="_blank" className="nav-link learn">🧠 &nbsp;learn</a>
                 </div>
             </div>
             <div className="content">

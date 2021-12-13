@@ -1,10 +1,22 @@
 @font-face {
-    font-family: SFRounded;
+    font-family: SFRoundedRegular;
     src: url(../../FontsFree-Net-SF-Pro-Rounded-Semibold.ttf);
 }
 @font-face {
     font-family: SFRoundedBold;
-    src: url(../../FontsFree-Net-SF-Pro-Rounded-Heavy.ttf);
+    src: url(../../SF-Pro-Rounded-Bold.otf);
+}
+@font-face {
+    font-family: SFRoundedHeavy;
+    src: url(../../SF-Pro-Rounded-Heavy.otf);
+}
+@font-face {
+    font-family: SFRoundedMedium;
+    src: url(../../SF-Pro-Rounded-Medium.otf);
+}
+@font-face {
+    font-family: SFRoundedSemibold;
+    src: url(../../SF-Pro-Rounded-Semibold.otf);
 }
 .homepage-light {
     position: relative;
@@ -146,7 +158,7 @@ background-image: linear-gradient(225deg, #802318 0%,#906002 20%, #8e7b03 40%,#0
     width: 100%; 
     background: 0px center; 
     border: 0px; 
-    font-family: SFRounded;
+    font-family: SFRoundedRegular;
     font-size: 19px;
     margin-bottom: -3px;
     opacity: 1; 
@@ -165,15 +177,16 @@ background-image: linear-gradient(225deg, #802318 0%,#906002 20%, #8e7b03 40%,#0
     margin-right: 10px;
 }
 .nav-link {
-    padding: 7px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 15px;
+    border-radius: 13px;
+    /* background-color: rgba(255,255,255,0.5); */
+    padding: 5px 10px 5px 10px;
     text-decoration: none;
     color: #26292e;
     font-size: 20px;
     margin-left: 20px;
-    font-family: SFRounded;
+    font-family: SFRoundedBold;
+    transition: all .12s ease-in-out; 
+
 }
 @keyframes multicolor {
     0% {
@@ -219,11 +232,12 @@ background-image: linear-gradient(225deg, #802318 0%,#906002 20%, #8e7b03 40%,#0
 }
 .nav-link:hover {
     animation: 2s multicolor infinite;    
+    transform: scale(1.1)
     }
 
 .header{
     font-size: 75px;
-    font-family: SFRoundedBold;
+    font-family: SFRoundedHeavy;
     color: black;
     width: 100%;
     max-width: 750px;
@@ -290,7 +304,7 @@ background-image: linear-gradient(225deg, #802318 0%,#906002 20%, #8e7b03 40%,#0
     width: 80%; 
     background: 0px center; 
     border: 0px; 
-    font-family: SFRounded;
+    font-family: SFRoundedRegular;
     font-size: 20px;
     opacity: 1; 
     outline: 0px; 
@@ -307,7 +321,7 @@ background-image: linear-gradient(225deg, #802318 0%,#906002 20%, #8e7b03 40%,#0
     font-size: 12px;
     position: absolute;
     left: 50px;
-    font-family: SFRounded;
+    font-family: SFRoundedRegular;
     color: #7b8091;
 }
 .android-mail-img{
@@ -428,7 +442,7 @@ text-align: center;
 }
 .about-title{
     margin-top: 0;
-    font-family: SFRounded;
+    font-family: SFRoundedHeavy;
     font-size: 6vh;    
     animation: multicolor 2s infinite;  
   
@@ -439,7 +453,7 @@ text-align: center;
 }
 .line{
     position: relative;
-    font-family: SFRounded;
+    font-family: SFRoundedBold;
     font-size: 3vh;
     color: black;
     left:0;
@@ -475,7 +489,7 @@ text-align: center;
     justify-content: center;
     text-align: center;
     animation: fadeIn 1s ease-in-out ;
-    font-family: SFRounded;
+    font-family: SFRoundedBold;
     font-size: 20px;
 }
 .label{
@@ -506,7 +520,7 @@ text-align: center;
     position: fixed;
     bottom:-10px;
     color: black;
-    font-family: SFRounded;
+    font-family: SFRoundedBold;
     margin-bottom: 5vh;
     animation: fadeIn 0.5s ease-in-out ;
 }
