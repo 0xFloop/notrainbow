@@ -53,28 +53,29 @@ function Home() {
     // var phone = $('.one').offset().top;
 
     const phoneScroll = () => {
-        console.log(initialOffset);
-        if (window.pageYOffset >= 2940) {
-            return ["fixed", "63vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "flex", "100", "100", "100", "100", "100", "100", "-10000", "absolute", "2760px", "0"];
+        var phoneWidth = intViewportHeight * 0.425;
+        if (window.pageYOffset - initialOffset >= intViewportHeight * 3.75) {
+            return ["fixed", "63vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "", "", "", "", "", "", "", "-10000", "absolute", (intViewportHeight * 3.75 + initialOffset).toString() + "px", "0"];
         }
-        else if (window.pageYOffset >= 2640) {
-            return ["fixed", "53vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "flex", "100", "100", "100", "100", "100", "100", "-10000", "fixed", "", "0"];
+        else if (window.pageYOffset - initialOffset >= intViewportHeight * 3.1) {
+            return ["fixed", "53vh", "flex", "-10000px", "-10000", "-10000", "none", "0", "0", "", "0", "0", "0", "0", "0", "0", "-10000", "fixed", "0", "0"];
         }
-        else if (window.pageYOffset >= 1820) {
-            return ["fixed", "53vh", "flex", (-((window.pageYOffset - 1520) * 2) - 120).toString() + "px", (-(window.pageYOffset - 1520) * 2).toString(), (-(window.pageYOffset - 1520) * 2 + 120).toString(), "none", "1", "1", "flex", (-(window.pageYOffset - 1820) * 1.71 + 1500).toString(), (-(window.pageYOffset - 1820) * 3.66 + 3100).toString(), (-(window.pageYOffset - 1820) * 4.62 + 3890).toString(), (-(window.pageYOffset - 1820) * 5.58 + 4680).toString(), (-(window.pageYOffset - 1820) * 6.54 + 5470).toString(), (-(window.pageYOffset - 1820) * 7.5 + 6260).toString(), "-10000", "fixed", "", "0"];
+        else if (window.pageYOffset - initialOffset >= intViewportHeight * 2.1) {
+            return ["fixed", "53vh", "flex", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString() + "px", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), "none", "1", "1", "flex", (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 1.33) + intViewportHeight).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 2.66) + intViewportHeight * 2).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 4) + intViewportHeight * 3).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 5.33) + intViewportHeight * 4).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 6.66) + intViewportHeight * 5).toString(), (-((window.pageYOffset - (intViewportHeight * 2.35 + initialOffset)) * 8) + intViewportHeight * 6).toString(), "-10000", "fixed", "0", "0"];
         }
-        else if (window.pageYOffset >= 1520) {
-            return ["fixed", "53vh", "flex", (-((window.pageYOffset - 1520) * 2) - 120).toString() + "px", (-(window.pageYOffset - 1520) * 2).toString(), (-(window.pageYOffset - 1520) * 2 + 120).toString(), "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+        else if (window.pageYOffset - initialOffset >= intViewportHeight * 2) {
+            return ["fixed", "53vh", "flex", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString() + "px", (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), (-(window.pageYOffset - (intViewportHeight * 2 + initialOffset)) * 2).toString(), "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
         }
-        else if (window.pageYOffset >= 1000) {
-            return ["fixed", "53vh", "flex", "-120px", "0", "120", "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+        else if (window.pageYOffset - initialOffset >= intViewportHeight) {
+            return ["fixed", "53vh", "flex", "0", "0", "0", "flex", "1", "1", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
         }
         else if (window.pageYOffset - initialOffset > 0) {
-            return ["fixed", "53vh", "flex", (-((window.pageYOffset - initialOffset) - 570)).toString() + "px", (-(window.pageYOffset * 1.755) + 1750).toString(), (-(window.pageYOffset * 2) + 2120).toString(), "none", ((window.pageYOffset - 500) * 0.01).toString(), ((window.pageYOffset - 700) * 0.005).toString(), "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
+            console.log((window.innerHeight + " " + (window.pageYOffset - initialOffset)));
+            return ["fixed", "53vh", "flex", (-((window.pageYOffset - initialOffset) * 0.425) + phoneWidth).toString() + "px", (-(window.pageYOffset - initialOffset) + intViewportHeight).toString(), (-(window.pageYOffset - initialOffset) * 2 + intViewportHeight * 2).toString(), "none", ((window.pageYOffset - initialOffset) * 0.01).toString(), ((window.pageYOffset - initialOffset) * 0.005).toString(), "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", "0"];
         }
         else if (window.pageYOffset <= initialOffset) {
             console.log(window.pageYOffset + " " + initialOffset)
-            return ["relative", "0px", "none", "100%", (-(window.pageYOffset - 420) + 2000).toString(), (-(window.pageYOffset - 420) + 3000).toString(), "none", "0", "0", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", ""];
+            return ["relative", "0px", "none", "100%", (-(window.pageYOffset - initialOffset) + intViewportHeight).toString(), (-(window.pageYOffset - initialOffset) + intViewportHeight * 2).toString(), "none", "0", "0", "none", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "-10000", "fixed", "", ""];
         }
     }
     return (
@@ -110,12 +111,12 @@ function Home() {
                     </div>
                 </div>
                 <div className="phone-display" style={{ position: `${phoneScroll()[0]}`, bottom: `${phoneScroll()[19]}` }}>
-                    <img src="assets/phone1.png" alt="" className="phone one" style={{ transform: "translateX(" + `${phoneScroll()[3]}` + ")" }} />
+                    <img src="assets/phone1.png" alt="" id="phone" className="phone" style={{ transform: "translateX(" + `${phoneScroll()[3]}` + ")" }} />
                     <img src="assets/phone2.png" alt="" className="phone one" style={{ transform: "translateX(" + `${phoneScroll()[4]}` + "px)", animation: "fadeIn 0.75s ease-in-out", opacity: `${phoneScroll()[7]}` }} />
                     <img src="assets/phone3.png" alt="" className="phone two" style={{ transform: "translateX(" + `${phoneScroll()[5]}` + "px)", animation: "fadeIn 0.75s ease-in-out", opacity: `${phoneScroll()[8]}` }} />
                 </div>
                 <div className="about" style={{ position: `${phoneScroll()[17]}`, top: `${phoneScroll()[18]}` }}>
-                    <h1 className="about-title" style={{ animation: "fadeIn 1s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[10]}` + "px)" }} >What is <span style={{ animation: "multicolor 2s infinite" }}> &nbsp;Rainbow&nbsp; </span> Wallet?</h1>
+                    <h1 className="about-title" style={{ animation: "fadeIn 1s ease-in-out", transform: "translateX(" + `${phoneScroll()[10]}` + "px)" }} >What is <span style={{ animation: "multicolor 2s infinite" }}>Rainbow</span> Wallet?</h1>
                     <h3 className="line first" style={{ animation: "fadeIn 1.25s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[11]}` + "px)" }} >Rainbow is a fun, simple, and secure mobile app that allows you to
                     </h3>
                     <h3 className="line second" style={{ animation: "fadeIn 1.05s ease-in-out", display: `${phoneScroll()[9]}`, transform: "translateX(" + `${phoneScroll()[12]}` + "px)" }} >1️⃣ Create an Ethereum wallet
